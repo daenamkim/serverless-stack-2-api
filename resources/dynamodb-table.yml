@@ -14,5 +14,5 @@ Resources:
         - AttributeName: noteId
           KeyType: RANGE
       ProvisionedThroughput:
-        ReadCapacityUnits: ${self:custom:tableThroughput}
-        WriteCapcityUnits: ${self:custom:tableThroughput}
+        ReadCapacityUnits: ${self:custom.tableThroughput}
+        WriteCapacityUnits: ${self:custom.tableThroughput}

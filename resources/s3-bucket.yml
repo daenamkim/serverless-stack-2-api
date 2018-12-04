@@ -13,11 +13,11 @@ Resources:
               - GET
               - PUT
               - POST
-              - DELTE
+              - DELETE
               - HEAD
             MaxAge: 3000
 
-Ourputs:
+Outputs:
   AttachmentsBucketName:
     Value:
       Ref: AttachmentsBucket

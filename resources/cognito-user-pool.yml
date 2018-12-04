@@ -5,14 +5,14 @@ Resources:
       UserPoolName: ${self:custom.stage}-user-pool
       UsernameAttributes:
         - email
-      AutoVerifiedAttriutes:
+      AutoVerifiedAttributes:
         - email
 
-  CognitoUserPoorClient:
+  CognitoUserPoolClient:
     Type: AWS::Cognito::UserPoolClient
     Properties:
       ClientName: ${self:custom.stage}-user-pool-client
-      UserPoorId:
+      UserPoolId:
         Ref: CognitoUserPool
       ExplicitAuthFlows:
         - ADMIN_NO_SRP_AUTH
