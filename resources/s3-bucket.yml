@@ -1,0 +1,23 @@
+Resources:
+  AttachmentsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      CorsConfiguration:
+        CorsRules:
+          -
+            AllowedOrigins:
+              - '*'
+            AllowedHeaders:
+              - '*'
+            AllowedMethods:
+              - GET
+              - PUT
+              - POST
+              - DELTE
+              - HEAD
+            MaxAge: 3000
+
+Ourputs:
+  AttachmentsBucketName:
+    Value:
+      Ref: AttachmentsBucket
