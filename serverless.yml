@@ -8,9 +8,6 @@ plugins:
 # serverless-webpack configuration
 # Enable auto-packing of external modules
 custom:
-  webpack:
-    webpackConfig: ./webpack.config.js
-    includeModules: true
   stage: ${opt:stage, self:provider.stage}
   tableName: ${self:custom.stage}-notes
   tableThroughputs:
