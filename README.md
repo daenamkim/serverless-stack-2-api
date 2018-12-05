@@ -62,3 +62,43 @@ $ serverless deploy
 Serverless Stack is authored and maintained by Frank Wang ([@fanjiewang](https://twitter.com/fanjiewang)) & Jay V ([@jayair](https://twitter.com/jayair)). [**Subscribe to our newsletter**](http://eepurl.com/cEaBlf) for updates on Serverless Stack. Send us an [email][Email] if you have any questions.
 
 [Email]: mailto:contact@anoma.ly
+
+#### Tests
+
+[Simple API tests](https://serverless-stack.com/chapters/test-the-configured-apis.html)
+
+Create a user.
+
+```sh
+$ aws cognito-idp sign-up \
+  --region YOUR_DEV_COGNITO_REGION \
+  --client-id YOUR_DEV_COGNITO_APP_CLIENT_ID \
+  --username admin@example.com \
+  --password Passw0rd!
+```
+
+Confirm a user.
+
+```sh
+$ aws cognito-idp admin-confirm-sign-up \
+  --region YOUR_DEV_COGNITO_REGION \
+  --user-pool-id YOUR_DEV_COGNITO_USER_POOL_ID \
+  --username admin@example.com
+```
+
+Post a note.
+
+```sh
+$ npx aws-api-gateway-cli-test \
+--username='admin@example.com' \
+--password='Passw0rd!' \
+--user-pool-id='YOUR_DEV_COGNITO_USER_POOL_ID' \
+--app-client-id='YOUR_DEV_COGNITO_APP_CLIENT_ID' \
+--cognito-region='YOUR_DEV_COGNITO_REGION' \
+--identity-pool-id='YOUR_DEV_IDENTITY_POOL_ID' \
+--invoke-url='YOUR_DEV_API_GATEWAY_URL' \
+--api-gateway-region='YOUR_DEV_API_GATEWAY_REGION' \
+--path-template='/notes' \
+--method='POST' \
+--body='{"content":"hello world","attachment":"hello.jpg"}'
+```
