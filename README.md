@@ -102,3 +102,9 @@ $ npx aws-api-gateway-cli-test \
 --method='POST' \
 --body='{"content":"hello world","attachment":"hello.jpg"}'
 ```
+
+[Mock API test with mock data.](https://serverless-stack.com/chapters/test-the-billing-api.html)
+
+```sh
+$ serverless invoke local --function billing --path mocks/billing-event.json
+```
