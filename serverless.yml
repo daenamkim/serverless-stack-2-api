@@ -17,7 +17,6 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
-    # TODO: what will happen if there is no defualt in file?
   environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
 
 provider:
